@@ -6,39 +6,17 @@ import { RectButton, ScrollView } from 'react-native-gesture-handler';
 
 export default function HiraganaScreen() {
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      <Character
-        japanese="あ"
-        romaji=""
-        icon="md-play-circle"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
-      />
-      <Character
-        japanese="い"
-        romaji=""
-        icon="md-play-circle"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
-      />
-      <Character
-        japanese="う"
-        romaji=""
-        icon="md-play-circle"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
-      />
-      <Character
-        japanese="え"
-        romaji=""
-        icon="md-play-circle"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
-      />
-      <Character
-        japanese="お"
-        romaji=""
-        icon="md-play-circle"
-        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
-      />
-
-      
+    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer} data={props}>
+      {data.map(element => {
+        return (
+          <Character
+            key={element.japaneseChar}
+            title={element.romajiChar}
+            icon="md-play-circle"
+            onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+          />
+        )
+      })}
     </ScrollView>
   );
 }
@@ -59,6 +37,13 @@ function Character({ icon, japanese, romaji, onPress, isLastOption }) {
       </View>
     </RectButton>
   );
+}
+
+const props = {
+    element: {
+      japaneseChar: "j",
+      romajiChar: "i"
+  }
 }
 
 const styles = StyleSheet.create({

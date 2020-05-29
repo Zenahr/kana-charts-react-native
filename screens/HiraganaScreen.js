@@ -10,31 +10,31 @@ export default function HiraganaScreen() {
       <Character
         japanese="あ"
         romaji=""
-        icon="md-school"
+        icon="md-play-circle"
         onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
       />
       <Character
         japanese="い"
         romaji=""
-        icon="md-school"
+        icon="md-play-circle"
         onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
       />
       <Character
         japanese="う"
         romaji=""
-        icon="md-school"
+        icon="md-play-circle"
         onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
       />
       <Character
         japanese="え"
         romaji=""
-        icon="md-school"
+        icon="md-play-circle"
         onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
       />
       <Character
         japanese="お"
         romaji=""
-        icon="md-school"
+        icon="md-play-circle"
         onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
       />
 
@@ -46,8 +46,7 @@ export default function HiraganaScreen() {
 function Character({ icon, japanese, romaji, onPress, isLastOption }) {
   return (
     <RectButton style={[styles.option, isLastOption && styles.lastOption]} onPress={onPress}>
-      <View style={{ flexDirection: 'row' }}>
-       
+      <View style={{ flexDirection: 'column' }}>
         <View style={styles.optionTextContainer}>
           <Text style={styles.optionText}>{japanese}</Text>
         </View>
@@ -71,7 +70,8 @@ const styles = StyleSheet.create({
     paddingTop: 15,
   },
   optionIconContainer: {
-    marginLeft: 12,
+    alignItems: "flex-end",
+    marginRight: "21px"
   },
   option: {
     backgroundColor: '#fdfdfd',

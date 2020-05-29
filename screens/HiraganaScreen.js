@@ -7,35 +7,52 @@ import { RectButton, ScrollView } from 'react-native-gesture-handler';
 export default function HiraganaScreen() {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-      <OptionButton
-        label="Read the Expo documentation"
+      <Character
+        japanese="あ"
+        romaji=""
+        icon="md-school"
+        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+      />
+      <Character
+        japanese="い"
+        romaji=""
+        icon="md-school"
+        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+      />
+      <Character
+        japanese="う"
+        romaji=""
+        icon="md-school"
+        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+      />
+      <Character
+        japanese="え"
+        romaji=""
+        icon="md-school"
+        onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
+      />
+      <Character
+        japanese="お"
+        romaji=""
         icon="md-school"
         onPress={() => WebBrowser.openBrowserAsync('https://docs.expo.io')}
       />
 
-      <OptionButton
-        label="Read the React Navigation documentation"
-        icon="md-compass"
-        onPress={() => WebBrowser.openBrowserAsync('https://reactnavigation.org')}
-      />
-
-      <OptionButton
-        label="Ask a question on the forums"
-        icon="ios-chatboxes"
-        onPress={() => WebBrowser.openBrowserAsync('https://forums.expo.io')}
-        isLastOption
-      />
+      
     </ScrollView>
   );
 }
 
-function OptionButton({ icon, label, onPress, isLastOption }) {
+function Character({ icon, japanese, romaji, onPress, isLastOption }) {
   return (
     <RectButton style={[styles.option, isLastOption && styles.lastOption]} onPress={onPress}>
       <View style={{ flexDirection: 'row' }}>
        
         <View style={styles.optionTextContainer}>
-          <Text style={styles.optionText}>{label}</Text>
+          <Text style={styles.optionText}>{japanese}</Text>
+        </View>
+        <View style={styles.optionTextContainer}>
+          <Text style={styles.optionText}>{romaji}</Text>
         </View>
         <View style={styles.optionIconContainer}>
           <Ionicons name={icon} size={22} color="rgba(0,0,0,0.35)" />
